@@ -1,8 +1,10 @@
-    
 
-    
 
-document.getElementById("myButton").addEventListener("click", function() {
+document.getElementById("save").addEventListener("click", function() {
+    chrome.runtime.sendMessage({action: "dlDATA"});
+});
+
+document.getElementById("launch").addEventListener("click", function() {
 
     
     chrome.tabs.query({ active: true, currentWindow: true }, function(tabs) {

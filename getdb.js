@@ -4,28 +4,30 @@ let inputElement = document.getElementsByClassName("svelte-e27s92")[1]
 let hashForAAA = document.getElementsByClassName("svelte-1fdvo7g")[25].getAttribute('src').substring(110, 290);
 let havetorestartmain = false;
 let time = 0;
-const database = {
-    
-}
-;
+let hashTextMap ={}; // Declare hashTextMap globally
 let buttonElement = document.getElementsByClassName("terminal svelte-2fhq5c")[0];
+
+/*
+loadHashTextMap();console.log("loading dbtest.json");
     // Function to update database
     // "Database" object to store the hash and associated name
     const updateDatabase = () => {
         if (time < 1){
             time = 2;
-        if (!(hashForAAA in database)) {
-        console.log(inputElement+"aaa");
+            if (!(hashForAAA in database)) {
+                console.log(inputElement+"aaa");
         
-        database[hashForAAA] = inputElement;
-        console.log('Database updated:', database);}
-        else {
-            console.log('Hash already exists in the database:', hashForAAA);
-        }
+                database[hashForAAA] = inputElement;
+                console.log('Database updated:', database);
+                }
+            else {
+                console.log('Hash already exists in the database:', hashForAAA);
+            }
         window.setTimeout(function(){time = 0;},500);
     }}
     
-    ;
+    
+    ;*/
     // Function to get hash from text
 /*function stringToHash(string) {
     let hash = 0;
@@ -51,23 +53,19 @@ function onUserTyping(){
 
 // Define the hash function
 function main(){
-
     try{
-
-inputElementread.addEventListener('input', onUserTyping);
-if (inputElement && buttonElement) {
-
-    // Add listener to the button for the click event
-    buttonElement.addEventListener('click', updateDatabase);
-} console.log("In main disabling condition") ;havetorestartmain = false; }
-catch{console.log("still not in windows trying again");
-
-    inputElementread = document.getElementsByClassName('svelte-e27s92')[1];
-    buttonElement = document.getElementsByClassName("terminal svelte-2fhq5c")[0];
-    return;
-
-
-}
+        inputElementread.addEventListener('input', onUserTyping);
+        if (inputElement && buttonElement) {
+        // Add listener to the button for the click event
+        buttonElement.addEventListener('click', updateDatabase);
+        }  
+    console.log("In main disabling condition") ;havetorestartmain = false; }
+    catch{
+        console.log("still not in windows trying again");
+        inputElementread = document.getElementsByClassName('svelte-e27s92')[1];
+        buttonElement = document.getElementsByClassName("terminal svelte-2fhq5c")[0];
+        return;
+    }
 };
 
 window.setInterval(function(){
@@ -77,23 +75,17 @@ window.setInterval(function(){
     if (inputElementread == null || havetorestartmain == true){
         console.log("ipstart"+inputElementread);
         if (bool == false){
-        console.log("off main enabling condition");
-        havetorestartmain = true;
-        bool = true;
-        console.log("not in windows relaunching main");console.log("Main Relaunched");
-        main();
-      
-       bool = false; 
-      
-       
+            console.log("off main enabling condition");
+            havetorestartmain = true;
+            bool = true;
+            console.log("not in windows relaunching main");console.log("Main Relaunched");
+            main();
+            bool = false;       
+        }
     }
-    }
-    else{
-        //console.log(inputElementread);
-       
-    }
-    
+   
 },1000);
+
 main();
 
    

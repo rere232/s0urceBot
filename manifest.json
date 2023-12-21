@@ -3,7 +3,9 @@
       "default_popup": "popup.html"
     },
     
-    
+    "background": {
+      "service_worker": "background.js"
+    },
     "description": "auto write",
     "host_permissions": [
       "https://s0urce.io/*",
@@ -20,10 +22,17 @@
       "scripting",
       "clipboardRead",
       "clipboardWrite",
-      "scripting"
+      "scripting",
+      "downloads"
   
     ],
     "version": "0.0.1",
+    "web_accessible_resources": [
+      {
+        "resources": ["dbtest.json"],
+        "matches": ["<all_urls>"]
+      }
+    ],
     "content_scripts": [
       {
         "matches": ["https://s0urce.io/*, http://localhost/*, https://google.com/*"],

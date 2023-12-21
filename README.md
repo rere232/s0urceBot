@@ -6,3 +6,6 @@
 * __start an attack__
 * press on the script and press on launch
 * the bot will now learn word as you type them and when it knows them it will automaticly write them
+## save the learned words
+* press on the save button
+* replace the dbtest.json with the file that you downloaded
